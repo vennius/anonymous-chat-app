@@ -1,22 +1,20 @@
-//import Head from 'next/head'
-//import Image from 'next/image'
-//import styles from '../styles/Home.module.css'
 import Navigation from "../components/Navigation";
 import UserInfo from "../components/UserInfo";
-
+import ThreadsList from "../components/ThreadsList";
+import { data } from "../dummy/threads"
+import Link from "next/link";
 
 export default function Home() {
   return (
     
     <>
       <Navigation>
-        <a href={"/create"}>Create Thread</a>
-        <a href={"/"}>Home</a>
-        <a href={"/threads"}>Edit Profile</a>
+        <Link href={"/create"}>Create Thread</Link>
+        <Link href={"/"}>Home</Link>
+        <Link href={"/threads"}>Edit Profile</Link>
       </Navigation>
-      <div>
-        <UserInfo profileLink={"https://picsum.photos/id/237/200/200"} name={"stevennius chandra"} totalThreads={"5"}/>
-      </div>
+      <UserInfo profileLink={"https://picsum.photos/id/237/200/200"} name={"stevennius chandra"} totalThreads={"5"}/>
+      <ThreadsList data={data}/>
     </>
     
   );
