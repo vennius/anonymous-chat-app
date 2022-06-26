@@ -11,6 +11,7 @@ const Container = styled.div`
   box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.35);
   box-sizing: border-box;
   padding-top: 10px;
+  color: #000;
 `;
 
 const CardsWrapper = styled.div`
@@ -69,7 +70,7 @@ const Status = ({isOver}) => {
     background-color: ${isOver ? "#f8a5a5" : "#6f9cf8"};
   `;
   
-  return <StatusContainer>{isOver ? "OVER" : "ON"}</StatusContainer>
+  return <StatusContainer>{isOver ? "OVER" : "ON GOING"}</StatusContainer>
   
 };
 
