@@ -22,7 +22,7 @@ export const data = [{
 },
   {
     id: '28282929+$$+$+#(',
-    title: "searching for a boyfriend...",
+    title: "nyari anak anjeng...",
     timeEnded: {
       date: 5,
       month: "August",
@@ -44,7 +44,7 @@ export const data = [{
   },
   {
     id: '*!!*!*!($(3(3(3(2',
-    title: "searching for a girlfriend...",
+    title: "anak anjeng hilang...",
     timeEnded: {
       date: 15,
       month: "April",
