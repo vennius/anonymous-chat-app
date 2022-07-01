@@ -5,11 +5,16 @@ const schema = new mongoose.Schema({
   email: String,
   password: String,
   profile: String,
-  totalThreads: Number,
-  threads: [{
+  totalThreads: Number
+  /*threads: [{
     title: String,
-    time: String
-  }]
+    createdAt: String,
+    endedAt: String,
+    messages: [{
+      at: String,
+      message: String
+    }]
+  }]*/
 });
 
 const User = mongoose.models.User || mongoose.model("User", schema);
