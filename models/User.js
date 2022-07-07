@@ -4,8 +4,7 @@ const schema = new mongoose.Schema({
   username: String,
   email: String,
   password: String,
-  profile: String,
-  totalThreads: Number
+  profile: String
   /*threads: [{
     title: String,
     createdAt: String,

@@ -68,6 +68,7 @@ const Status = ({isOver}) => {
     padding: 3px;
     border-radius: 25px;
     background-color: ${isOver ? "#f8a5a5" : "#6f9cf8"};
+    text-align: center;
   `;
   
   return <StatusContainer>{isOver ? "OVER" : "ON GOING"}</StatusContainer>

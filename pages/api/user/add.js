@@ -11,12 +11,9 @@ export default async function handler(req, res){
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
-      profile: req.body.profile,
-      totalThreads: req.body.totalThreads
+      profile: "profile.jpg"
     });
-    res.json({
-      status: "ok"
-    });
+    res.redirect("/login?registered=true");
   }catch(err){
     console.log(err.message);
     res.json({

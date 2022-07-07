@@ -20,10 +20,10 @@ const Register = () => {
   return (
   <>
     <RegisterText>Register Here</RegisterText>
-    <Form>
-      <Input placeholder="Enter your email..." type="email"/>
-      <Input placeholder="Enter your username..." type="text"/>
-      <Input placeholder="Enter your password..." type="password"/>
+    <Form method="POST" action="/api/user/add">
+      <Input placeholder="Enter your email..." type="email" name="email" required="required" minlength="10"/>
+      <Input placeholder="Enter your username..." type="text" name="username" required=""/>
+      <Input placeholder="Enter your password..." name="password" type="password" required="required"/>
       <div style={{
         fontSize: 12.5
       }}>Already have an account? <RegisterLink><Link href="/login">Login</Link></RegisterLink></div>

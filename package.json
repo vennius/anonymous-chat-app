@@ -12,12 +12,18 @@
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/material": "^5.8.5",
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "cookies-next": "^2.1.1",
     "date-fns": "^2.28.0",
+    "hoist-non-react-statics": "^3.3.2",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.1",
     "next": "12.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "util": "^0.12.4"
   },
   "devDependencies": {
     "eslint": "8.18.0",
