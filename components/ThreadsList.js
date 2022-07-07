@@ -62,6 +62,7 @@ const TimeCreated = styled.div`
   margin: 5px 0;
 `;
 
+const TimeEnded = TimeCreated;
 const Status = ({isOver}) => {
   
   const StatusContainer = styled.div`
@@ -75,7 +76,7 @@ const Status = ({isOver}) => {
   
 };
 
-const TimeEnded = TimeCreated;
+//const TimeEnded = TimeCreated;
 
 const ThreadsList = ({data}) => {
   
@@ -89,9 +90,20 @@ const ThreadsList = ({data}) => {
       <Title>Your Threads</Title>
       <CardsWrapper>
         {data.map(thread => {
-        const nowDate = new Date();
-        const userDate = new Date(thread.timeEnded.year, thread.timeEnded.monthNum, thread.timeEnded.date, thread.timeEnded.hour, thread.timeEnded.minute, thread.timeEnded.second);
+        const { createdAt, endedAt } = thread;
         
+        const createdSplit = createdAt.split(" ");
+        const endedSplit = endedAt.split(" ");
+
+        const [createdDate, createdMonth, createdYear] = createdSplit[0].split("/"); // d/m/y
+        const [createdHours, createdMinutes, createdSeconds] = createdSplit[1].split(":"); // h:m:s
+        const [endedDate, endedMonth, endedYear] = endedSplit[0].split("/"); // d/m/y
+        const [endedHours, endedMinutes, endedSeconds] = endedSplit[1].split(":"); // h:m:s
+        
+        const created = new Date(createdYear, createdMonth-1, createdDate, createdHours, createdMinutes, createdSeconds);
+        const ended = new Date(endedYear, endedMonth-1, endedDate, endedHours, endedMinutes, endedSeconds);
+        console.log(ended);
+        console.log(isPast(ended));
         /*
         const date = d.getDate();
         const month = d.getMonth();
@@ -110,12 +122,12 @@ const ThreadsList = ({data}) => {
           <Card>
           <ThreadTitle>{thread.title}</ThreadTitle>
           <TimeCreated>
-            {thread.timeCreated.date}-{thread.timeCreated.month}-{thread.timeCreated.year} | {thread.timeCreated.hour}:{thread.timeCreated.minute}
+            {created.getDate()}-{created.getMonth()}-{created.getFullYear()} | {created.getHours()}:{created.getMinutes()}
           </TimeCreated>
           <TimeEnded>
-            <b>{isPast(userDate) ? "Ended at" : "Until"}: </b>{thread.timeEnded.date}-{thread.timeEnded.month}-{thread.timeEnded.year} | {thread.timeEnded.hour}:{thread.timeEnded.minute}
+            <b>{isPast(ended) ? "Ended at" : "Until"}: </b>{ended.getDate()}-{ended.getMonth()}-{ended.getFullYear()} | {ended.getHours()}:{ended.getMinutes()}
           </TimeEnded>
-          <Status isOver={isPast(userDate)}/>
+          <Status isOver={isPast(ended)}/>
           </Card>
         </Link>
         );

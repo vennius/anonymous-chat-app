@@ -1,2 +1,4 @@
-## .env file variables
+## enviroment variables
 1. MONGO_URI => MONGODB ATLAS URI
+2. PRIVATE_KET => PRIVATE KEY FOR JWT
+3. BASE_URL => BASE URL

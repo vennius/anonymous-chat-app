@@ -23,14 +23,14 @@ const Select = styled.select`
   text-align: center;
 `;
 
-const Create = () => {
+const Create = ({setHours, setTitle}) => {
   return (
   <>
     <TitleWrapper>Create Thread</TitleWrapper>
-    <Form>
-      <Input placeholder={"Enter your Thread title..."}/>
+    <Form action="/api/thread/add" method="POST">
+      <Input placeholder={"Enter your Thread title..."} name="title" onChange={(e) => setTitle(e.target.value)}/>
       <Label>Available for: </Label>
-      <Select name="time">
+      <Select name="endsInHours" onChange={e => setHours(e.target.value)}>
         <option value="1">1 Hour</option>
         <option value="3">3 Hours</option>
         <option value="5">5 Hours</option>

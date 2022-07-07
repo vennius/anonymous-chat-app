@@ -7,6 +7,7 @@ import formatDate from "../../../utils/formatDate";
 import User from "../../../models/User";
 import Thread from "../../../models/Thread";
 import { format, addHours } from "date-fns";
+import decodeCookie from "../../../utils/getUserFromCookie";
 
 export default async function handler(req, res){
   
@@ -16,7 +17,9 @@ export default async function handler(req, res){
     status: "error"
   });
   
-  const {createdById, endsInHours, title} = req.body;
+  const decodedCookie = decodeCookie(req.cookies.token);
+  const createdById = decodedCookie.id;
+  const {endsInHours, title} = req.body;
   
   conn();
   const createdDate = new Date();
@@ -30,8 +33,6 @@ export default async function handler(req, res){
     createdAt,
     endedAt
   });
-  return res.json({
-    status: "ok"
-  });
+  res.redirect("/create");
   
 }

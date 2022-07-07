@@ -12,11 +12,11 @@ export function middleware(req) {
   if(req.nextUrl.pathname.startsWith("/api")) return;
   
   if(!req.nextUrl.pathname.startsWith("/login") && !req.nextUrl.pathname.startsWith("/register")){
-    if(!getCookie("registered", {req, res})){
+    if(!getCookie("token", {req, res})){
       return NextResponse.redirect(new URL(`/login`, req.url));
     }
   }else{
-    if(getCookie("registered", {req, res})){
+    if(getCookie("token", {req, res})){
       return NextResponse.redirect(new URL(`/`, req.url));
     }
   }

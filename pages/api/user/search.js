@@ -2,12 +2,11 @@ import mongoose from "mongoose";
 // function to connect to mongodb
 import conn from "../../../utils/connectMongo";
 // user model
-import Thread from "../../../models/Thread";
+import User from "../../../models/User";
 
 export default async function handler(req, res){
   conn();
-  const thread = await Thread.find({ createdById : req.body.id })
   return res.json({
-    data: thread ? thread : []
+    data: await User.find(req.body)
   });
 }

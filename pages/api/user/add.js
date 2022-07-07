@@ -11,7 +11,7 @@ export default async function handler(req, res){
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
-      profile: "profile.jpg"
+      profile: "https://picsum.photos/id/237/200/200"
     });
     res.redirect("/login?registered=true");
   }catch(err){
