@@ -23,11 +23,9 @@ export async function getServerSideProps(ctx){
   const decodedCookie = decodeCookie(req.cookies.token);
   const baseUrl = process.env.BASE_URL;
   const axRes = await axios.post(`${baseUrl}/api/user/search`, decodedCookie);
-  console.log(axRes.data);
   const thRes = await axios.post(`${baseUrl}/api/thread/get`, {
     id: axRes.data.data[0]._id
   });
-  console.log(thRes.data.data);
   return {
     props: {
       data: axRes.data.data[0] || null,

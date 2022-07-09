@@ -13,7 +13,8 @@ const FormButton = styled.button`
   padding: 15px;
   border: 1px solid #7b7b7b;
   transition: .15s;
-  margin-top: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   &:hover{
     opacity: 50%;
   }

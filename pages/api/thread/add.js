@@ -33,6 +33,6 @@ export default async function handler(req, res){
     createdAt,
     endedAt
   });
-  res.redirect("/create");
+  res.redirect("/");
   
 }

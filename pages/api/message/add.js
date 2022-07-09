@@ -12,9 +12,7 @@ export default async function handler(req, res){
   conn();
   try{
     await pushMessage(req.body.id, req.body.message);
-    res.json({
-      status: "ok"
-    });
+    res.redirect(`/thread/${req.body.id}`);
   }catch(err){
     console.log(err.message);
     res.json({

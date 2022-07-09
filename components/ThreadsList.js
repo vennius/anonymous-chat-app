@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { format, compareAsc, isPast } from 'date-fns';
+import threadDateHelper from "../utils/threadDateHelper";
 
 const Container = styled.div`
   width: 300px;
@@ -12,12 +13,13 @@ const Container = styled.div`
   box-sizing: border-box;
   padding-top: 10px;
   color: #000;
+  overflow: hidden;
 `;
 
 const CardsWrapper = styled.div`
   max-height: 500px;
   overflow-y: scroll;
-  padding: 0 10px 10px 10px;
+  padding: 0 10px;
 `;
 
 const Card = styled.div`
@@ -84,48 +86,27 @@ const ThreadsList = ({data}) => {
     dateCreated format = date:month:year
   */
   
+  if(data.length < 1) return;
   
   return(
     <Container>
       <Title>Your Threads</Title>
       <CardsWrapper>
         {data.map(thread => {
-        const { createdAt, endedAt } = thread;
-        
-        const createdSplit = createdAt.split(" ");
-        const endedSplit = endedAt.split(" ");
-
-        const [createdDate, createdMonth, createdYear] = createdSplit[0].split("/"); // d/m/y
-        const [createdHours, createdMinutes, createdSeconds] = createdSplit[1].split(":"); // h:m:s
-        const [endedDate, endedMonth, endedYear] = endedSplit[0].split("/"); // d/m/y
-        const [endedHours, endedMinutes, endedSeconds] = endedSplit[1].split(":"); // h:m:s
-        
-        const created = new Date(createdYear, createdMonth-1, createdDate, createdHours, createdMinutes, createdSeconds);
-        const ended = new Date(endedYear, endedMonth-1, endedDate, endedHours, endedMinutes, endedSeconds);
-        console.log(ended);
-        console.log(isPast(ended));
-        /*
-        const date = d.getDate();
-        const month = d.getMonth();
-        const year = d.getFullYear();
-        const second = d.getSeconds();
-        const minute = d.getMinutes();
-        const hour = d.getHours();
-        */
-        
+        const { created, ended, hasPast, monthNameCreated, monthNameEnded} = threadDateHelper(thread);
         /*
         new Date(year, month, day, hours, minutes, seconds, milliseconds);
         */
         
         return (
-        <Link key={thread.id} href={`/threads/${thread.id}`}>
+        <Link key={thread.id} href={`/thread/${thread._id}`}>
           <Card>
           <ThreadTitle>{thread.title}</ThreadTitle>
           <TimeCreated>
-            {created.getDate()}-{created.getMonth()}-{created.getFullYear()} | {created.getHours()}:{created.getMinutes()}
+            {created.getDate()}-{monthNameCreated}-{created.getFullYear()} | {created.getHours()}:{created.getMinutes()}
           </TimeCreated>
           <TimeEnded>
-            <b>{isPast(ended) ? "Ended at" : "Until"}: </b>{ended.getDate()}-{ended.getMonth()}-{ended.getFullYear()} | {ended.getHours()}:{ended.getMinutes()}
+            <b>{hasPast ? "Ended at" : "Until"}: </b>{ended.getDate()}-{monthNameEnded}-{ended.getFullYear()} | {ended.getHours()}:{ended.getMinutes()}
           </TimeEnded>
           <Status isOver={isPast(ended)}/>
           </Card>
