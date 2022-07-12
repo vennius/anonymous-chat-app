@@ -51,7 +51,7 @@ const Login = ({registered}) => {
       <Input placeholder={"Enter your password..."} type="password" name="password" onChange={setInputState}/>
       <div style={{
         fontSize: 12.5
-      }}>Don't have an account yet? <RegisterLink><Link href="/register">Register</Link></RegisterLink></div>
+      }}>Don&apos;t have an account yet? <RegisterLink><Link href="/register">Register</Link></RegisterLink></div>
       <FormButton type="submit">Login</FormButton>
     </Form>
     </>

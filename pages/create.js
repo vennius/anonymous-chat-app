@@ -2,7 +2,7 @@ import { useState } from "react";
 import Navigation from "../components/Navigation";
 import Create from "../components/Create";
 
-export default function create(){
+export default function CreateThread(){
   const [getTitle, setTitle] = useState("");
   const [getHours, setHours] = useState(1);
   /*console.log(getTitle);

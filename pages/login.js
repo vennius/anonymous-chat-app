@@ -1,7 +1,4 @@
 import Login from '../components/Login';
-import {
-  NextRequest
-} from 'next/server';
 //import axios from "axios";
 
 const Handler = ({registered}) => {

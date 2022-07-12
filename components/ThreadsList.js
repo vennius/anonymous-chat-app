@@ -103,10 +103,10 @@ const ThreadsList = ({data}) => {
           <Card>
           <ThreadTitle>{thread.title}</ThreadTitle>
           <TimeCreated>
-            {created.getDate()}-{monthNameCreated}-{created.getFullYear()} | {created.getHours()}:{created.getMinutes()}
+            <b>Created at:</b> {created.getDate()}-{monthNameCreated}-{created.getFullYear()} | {created.getHours()}:{(created.getMinutes() > 9) ? created.getMinutes() : `0${created.getMinutes()}`}
           </TimeCreated>
           <TimeEnded>
-            <b>{hasPast ? "Ended at" : "Until"}: </b>{ended.getDate()}-{monthNameEnded}-{ended.getFullYear()} | {ended.getHours()}:{ended.getMinutes()}
+            <b>{hasPast ? "Ended at" : "Will end at"}: </b>{ended.getDate()}-{monthNameEnded}-{ended.getFullYear()} | {ended.getHours()}:{ended.getMinutes()}
           </TimeEnded>
           <Status isOver={isPast(ended)}/>
           </Card>

@@ -10,11 +10,14 @@ const FormButton = styled.button`
   color: #cdcdcd;
   text-align: center;
   width: 30%;
-  padding: 15px;
+  padding: 10px 40px;
   border: 1px solid #7b7b7b;
   transition: .15s;
   margin-top: 10px;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &:hover{
     opacity: 50%;
   }

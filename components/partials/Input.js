@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Input = styled.input`
-  width: 80%;
+  width: 90%;
   padding: 10px 3px;
   border: 1px solid #727272;
   margin: 10px auto;
@@ -12,7 +12,7 @@ const Input = styled.input`
   text-align: center;
   
   &::placeholder{
-    color: #cacaca;
+    color: rgbs(182,182,182,.75);
     font-size: 12px;
   }
   

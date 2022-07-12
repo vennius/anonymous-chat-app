@@ -9,7 +9,7 @@ import { getCookie } from 'cookies-next';
 export function middleware(req) {
   const res = NextResponse.next();
   
-  if(req.nextUrl.pathname.startsWith("/api")) return;
+  if(req.nextUrl.pathname.startsWith("/api") || req.nextUrl.pathname.startsWith("/thread")) return;
   
   if(!req.nextUrl.pathname.startsWith("/login") && !req.nextUrl.pathname.startsWith("/register")){
     if(!getCookie("token", {req, res})){

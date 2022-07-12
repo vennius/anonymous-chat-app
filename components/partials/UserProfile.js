@@ -8,7 +8,7 @@ const UserProfile = ({
 
     <img src={src} width="100" height="100" style={{
       borderRadius: "50%"
-    }}/>
+    }} alt="user profile"/>
 
   );
 }
